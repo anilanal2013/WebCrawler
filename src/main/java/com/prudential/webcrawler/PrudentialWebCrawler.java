@@ -15,18 +15,18 @@ public class PrudentialWebCrawler {
         links = new HashSet<String>();
     }
 
-    public void getPageLinks(String URL) {
+    public void getPageLinks(String url) {
         //4. Check if you have already crawled the URLs 
         //(we are intentionally not checking for duplicate content in this example)
-        if (!links.contains(URL)) {
+        if (!links.contains(url)) {
             try {
                 //4. (i) If not add it to the index
-                if (links.add(URL)) {
-                    System.out.println(URL);
+                if (links.add(url)) {
+                    System.out.println(url);
                 }
 
                 //2. Fetch the HTML code
-                Document document = Jsoup.connect(URL).get();
+                Document document = Jsoup.connect(url).get();
                 //3. Parse the HTML to extract links to other URLs
                 Elements linksOnPage = document.select("a[href]");
 
@@ -35,7 +35,7 @@ public class PrudentialWebCrawler {
                     getPageLinks(page.attr("abs:href"));
                 }
             } catch (IOException e) {
-                System.err.println("For '" + URL + "': " + e.getMessage());
+                System.err.println("For '" + url + "': " + e.getMessage());
             }
         }
     }
