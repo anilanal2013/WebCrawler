@@ -9,7 +9,7 @@ Steps to execute code
     jdk1.8.0_171
     
     JavaSE-1.8
- 4. Right click on com.prudential.webcrawler.WebCrawlerApp.java -> Run As->Java Application
+ 4. Right click on ccom.prudential.webcrawler.PrudentialWebCrawler.java -> Run As->Java Application
  
  5. It will print Craweled URL on IDE console.
  
